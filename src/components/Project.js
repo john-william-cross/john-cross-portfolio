@@ -11,6 +11,7 @@ export default class Project extends React.Component {
    constructor() {
       super(); //super allows access to this
       this.state = {
+         //you can only assign this.state in the constructor
          //remember it's the state of this ONE project component
          isHoveredOver: false,
       };
