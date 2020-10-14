@@ -5,8 +5,23 @@ import { truncate } from "../utils/helpers"; //you can rename by adding, for exa
 import formatDate from "date-fns/format";
 
 export default class Project extends React.Component {
+   // Project.render()
+
+   constructor() {
+      super();
+      this.state = {
+         //remember it's the state of this ONE component
+         isTitleUnderlined: false,
+      };
+   }
+
+   displayUnderline() {
+      // TODO: change to setUnderline...
+      console.log(`Ok, let's display the underline`);
+   }
+
    render() {
-      const rating = this.props.project.rating;
+      const rating = this.props.project.rating; //this is referring to this class: Project
       console.log(rating);
       function displayStars() {
          let stars = [];
