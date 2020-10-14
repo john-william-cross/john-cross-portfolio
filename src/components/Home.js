@@ -6,7 +6,6 @@ import { projects } from "../data/projects";
 import githubLogo from "../icon/github.svg";
 import linkedInLogo from "../icon/linkedin.svg";
 import youtubeLogo from "../icon/youtube.svg";
-import starIcon from "../icon/star.svg";
 
 console.log(projects);
 

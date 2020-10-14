@@ -2,14 +2,23 @@ import React from "react";
 import starIcon from "../icon/star.svg";
 
 import linkIcon from "../icon/link.svg";
+import { truncate } from "../utils/helpers"; //you can rename by adding, for example, "as truncateString" after the word truncate
+import formatDate from "date-fns/format";
 
-function truncate(str, length) {
-   return str.slice(0, length) + "...";
-}
+export default function Project(props) {
+   const rating = props.project.rating;
+   console.log(rating);
+   function displayStars() {
+      let stars = [];
+      for (let i = 0; i < rating; i++) {
+         stars = stars.concat(
+            <img src={starIcon} width="16px" alt="Star icon" key={i} />
+         );
+      }
+      return stars;
+   }
 
-function Project(props) {
-   console.log("The props we passed from the parent component: ", props); //remember, props is an object
-   //even though it's plural
+   //remember, props is an object even though it's plural
    return (
       <>
          <div className="row mb-5">
@@ -45,15 +54,12 @@ function Project(props) {
                   className="text-decoration-none text-reset"
                >
                   <p>
-                     <img src={starIcon} width="16px" alt="Star icon" />
-                     <img src={starIcon} width="16px" alt="Star icon" />
-                     <img src={starIcon} width="16px" alt="Star icon" />
-                     <img src={starIcon} width="16px" alt="Star icon" />
+                     {displayStars()}
                      <span className="ml-2">
                         {props.project.desc} ({props.project.totalMinutes} min.)
                      </span>
                   </p>
-                  <p>{props.project.postedAt}</p>
+                  <p>{formatDate(props.project.postedAt, "MMM. d, yyyy")}</p>
                </a>
                <a
                   href={props.project.githubUrl}
@@ -75,5 +81,3 @@ function Project(props) {
       </>
    );
 }
-
-export default Project;

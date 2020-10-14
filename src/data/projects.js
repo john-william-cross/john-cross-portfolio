@@ -6,7 +6,7 @@ export const projects = [
       desc:
          "Validating password and email fields in Ask a Teacher, following best security and UX practices.",
       totalMinutes: 3,
-      postedAt: 1602523447997,
+      postedAt: 1602701340190,
       githubUrl: "https://github.com/john-william-cross/ask-a-teacher",
       image: "validation-of-email-and-password-on-account-creation.jpg",
       youtubeUrl: "https://www.youtube.com/watch?v=wLNF4YaMOwk",
