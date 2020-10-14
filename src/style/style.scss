@@ -1,6 +1,10 @@
 .title {
-   // font-size: 8px;
    @include media-breakpoint-only(xs) {
       font-size: 48px !important;
    }
+}
+
+.text-underline {
+   //bootstrap has a class that makes it underline on hover, so we have to create a class to override it
+   text-decoration: underline !important;
 }

@@ -7,49 +7,68 @@ import formatDate from "date-fns/format";
 export default class Project extends React.Component {
    // Project.render()
 
+   //constructor and render will be in every class component in react
    constructor() {
-      super();
+      super(); //super allows access to this
       this.state = {
-         //remember it's the state of this ONE component
-         isTitleUnderlined: false,
+         //remember it's the state of this ONE project component
+         isHoveredOver: false,
       };
    }
 
-   displayUnderline() {
-      // TODO: change to setUnderline...
-      console.log(`Ok, let's display the underline`);
+   setIsHoveredOver(isHoveredOver) {
+      this.setState({ isHoveredOver: isHoveredOver });
+      //above, we are setting the value of isHoveredOver to
+      //the variable isHoveredOver, which changes based on
+      //the cursor location
+   }
+
+   displayStars() {
+      //this.displayStars, where this means this particular class
+      const rating = this.props.project.rating; //this is referring to this class: Project... what is the props of this object
+      //remember, this.props is an object even though it's plural
+      let stars = [];
+      for (let i = 0; i < rating; i++) {
+         stars = stars.concat(
+            <img src={starIcon} width="16px" alt="Star icon" key={i} />
+         );
+      }
+      return stars;
    }
 
    render() {
-      const rating = this.props.project.rating; //this is referring to this class: Project
-      console.log(rating);
-      function displayStars() {
-         let stars = [];
-         for (let i = 0; i < rating; i++) {
-            stars = stars.concat(
-               <img src={starIcon} width="16px" alt="Star icon" key={i} />
-            );
-         }
-         return stars;
-      }
-
-      //remember, this.props is an object even though it's plural
       return (
          <>
             <div className="row mb-5">
-               <div className="col-12 mb-2">
+               <div
+                  className="col-12 mb-2"
+                  onMouseEnter={() => {
+                     this.setIsHoveredOver(true);
+                  }}
+                  onMouseLeave={() => {
+                     this.setIsHoveredOver(false);
+                  }}
+               >
                   <a
                      href={this.props.project.youtubeUrl}
                      target="_blank"
                      rel="noopener noreferrer"
-                     className="text-reset"
+                     className="text-reset text-decoration-none"
                   >
                      <h3 className="font-weight-normal">
-                        {this.props.project.title}{" "}
+                        {this.props.project.title}
                      </h3>
                   </a>
                </div>
-               <div className="col-12 col-md-4">
+               <div
+                  className="col-12 col-md-4"
+                  onMouseEnter={() => {
+                     this.setIsHoveredOver(true);
+                  }}
+                  onMouseLeave={() => {
+                     this.setIsHoveredOver(false);
+                  }}
+               >
                   <a
                      href={this.props.project.youtubeUrl}
                      target="_blank"
@@ -69,9 +88,15 @@ export default class Project extends React.Component {
                      target="_blank"
                      rel="noopener noreferrer"
                      className="text-decoration-none text-reset"
+                     onMouseEnter={() => {
+                        this.setIsHoveredOver(true);
+                     }}
+                     onMouseLeave={() => {
+                        this.setIsHoveredOver(false);
+                     }}
                   >
                      <p>
-                        {displayStars()}
+                        {this.displayStars()}
                         <span className="ml-2">
                            {this.props.project.desc} (
                            {this.props.project.totalMinutes} min.)
