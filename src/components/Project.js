@@ -1,39 +1,45 @@
 import React from "react";
+import starIcon from "../icon/star.svg";
+
+import linkIcon from "../icon/link.svg";
+
+function truncate(str, length) {
+   return str.slice(0, length) + "...";
+}
 
 function Project(props) {
-   console.log(props);
+   console.log("The props we passed from the parent component: ", props); //remember, props is an object
+   //even though it's plural
    return (
       <>
          <div className="row mb-5">
             <div className="col-12 mb-2">
                <a
-                  href="https://www.youtube.com/watch?v=wLNF4YaMOwk"
+                  href={props.project.youtubeUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-reset"
                >
-                  <h3 className="font-weight-normal">
-                     Validation of Email and Password on Account Creation
-                  </h3>
+                  <h3 className="font-weight-normal">{props.project.title} </h3>
                </a>
             </div>
             <div className="col-12 col-md-4">
                <a
-                  href="https://www.youtube.com/watch?v=wLNF4YaMOwk"
+                  href={props.project.youtubeUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                >
                   <img
-                     src={video1}
+                     src={require("../image/" + props.project.image)}
                      width="510px"
                      className="img-fluid"
-                     alt="Validation of Email and Password on Account Creation"
+                     alt={props.project.title}
                   />
                </a>
             </div>
             <div className="col-12 col-md-8 mt-3 mt-md-n1">
                <a
-                  href="https://www.youtube.com/watch?v=wLNF4YaMOwk"
+                  href={props.project.youtubeUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-decoration-none text-reset"
@@ -44,15 +50,13 @@ function Project(props) {
                      <img src={starIcon} width="16px" alt="Star icon" />
                      <img src={starIcon} width="16px" alt="Star icon" />
                      <span className="ml-2">
-                        Validating password and email fields in Ask a Teacher,
-                        following best security and UX practices. (3 min.
-                        30sec.)
+                        {props.project.desc} ({props.project.totalMinutes} min.)
                      </span>
                   </p>
-                  <p>October 8, 2020</p>
+                  <p>{props.project.postedAt}</p>
                </a>
                <a
-                  href="https://github.com/john-william-cross/ask-a-teacher"
+                  href={props.project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                >
@@ -64,7 +68,7 @@ function Project(props) {
                      target="_blank"
                      rel="noopener noreferrer"
                   />
-                  https://github.com/john-william-c...
+                  {truncate(props.project.githubUrl, 33)}
                </a>
             </div>
          </div>
