@@ -38,6 +38,11 @@ export default class Project extends React.Component {
    }
 
    render() {
+      let titleCSSClass = "text-reset text-decoration-none";
+      if (this.state.isHoveredOver) {
+         titleCSSClass += " text-underline";
+      }
+
       return (
          <>
             <div className="row mb-5">
@@ -54,7 +59,7 @@ export default class Project extends React.Component {
                      href={this.props.project.youtubeUrl}
                      target="_blank"
                      rel="noopener noreferrer"
-                     className="text-reset text-decoration-none"
+                     className={titleCSSClass}
                   >
                      <h3 className="font-weight-normal">
                         {this.props.project.title}
