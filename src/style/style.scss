@@ -1,0 +1,6 @@
+.title {
+   // font-size: 8px;
+   @include media-breakpoint-only(xs) {
+      font-size: 48px !important;
+   }
+}
