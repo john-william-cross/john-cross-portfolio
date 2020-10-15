@@ -38,6 +38,28 @@ export default class Project extends React.Component {
       return stars;
    }
 
+   displayAdvancedLink() {
+      if (this.props.isAdvanced) {
+         return (
+            <a
+               href={this.props.project.githubUrl}
+               target="_blank"
+               rel="noopener noreferrer"
+            >
+               <img
+                  src={linkIcon}
+                  width="16px"
+                  className="mr-2"
+                  alt=""
+                  target="_blank"
+                  rel="noopener noreferrer"
+               />
+               {truncate(this.props.project.githubUrl, 33)}
+            </a>
+         );
+      }
+   }
+
    render() {
       return (
          <>
@@ -117,21 +139,8 @@ export default class Project extends React.Component {
                         )}
                      </p>
                   </a>
-                  <a
-                     href={this.props.project.githubUrl}
-                     target="_blank"
-                     rel="noopener noreferrer"
-                  >
-                     <img
-                        src={linkIcon}
-                        width="16px"
-                        className="mr-2"
-                        alt=""
-                        target="_blank"
-                        rel="noopener noreferrer"
-                     />
-                     {truncate(this.props.project.githubUrl, 33)}
-                  </a>
+
+                  {this.displayAdvancedLink()}
                </div>
             </div>
          </>
