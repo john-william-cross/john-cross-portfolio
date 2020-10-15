@@ -104,7 +104,7 @@ export default class Home extends React.Component {
                            <input
                               type="radio"
                               id="most-recent"
-                              name="order-projects"
+                              name="project-order"
                               className="custom-control-input"
                            />
                            <label
@@ -118,7 +118,7 @@ export default class Home extends React.Component {
                            <input
                               type="radio"
                               id="most-popular"
-                              name="order-projects"
+                              name="project-order"
                               className="custom-control-input"
                            />
                            <label
