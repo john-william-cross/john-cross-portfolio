@@ -16,6 +16,18 @@ export default class Home extends React.Component {
       };
    }
 
+   setIsAdvanced() {
+      this.setState({ isAdvanced: !this.state.isAdvanced }); //this is the same as the if/else statement below
+      //set the state to isAdvanced.what we're going to set it to is the opposite of whatever it was. If it's false,
+      //we use the ! operator to set it to true; if it's true, use the ! operator to set it to false.
+
+      // if (this.state.isAdvanced) {
+      //    this.setState({ isAdvanced: false });
+      // } else {
+      //    this.setState({ isAdvanced: true });
+      // }
+   }
+
    render() {
       return (
          <div className="container">
@@ -36,6 +48,11 @@ export default class Home extends React.Component {
                               type="checkbox"
                               className="custom-control-input"
                               id="advanced-view"
+                              checked={this.state.isAdvanced} //we are accessing the whole class of Home, then accessing the state of it,
+                              //then accessing the isAdvanced property from the state object
+                              onChange={() => {
+                                 this.setIsAdvanced(); //again, this refers to the whole component
+                              }}
                            />
                            <label
                               className="custom-control-label"
