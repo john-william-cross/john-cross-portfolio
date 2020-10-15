@@ -9,8 +9,8 @@ import Bio from "./Bio";
 console.log(projects);
 
 export default class Home extends React.Component {
-   constructor() {
-      super();
+   constructor(props) {
+      super(props);
       this.state = {
          isAdvanced: false,
       };
@@ -109,6 +109,12 @@ export default class Home extends React.Component {
                            />
                         );
                      })}
+
+                  {/* {[ react will automatically render things in an array! 
+                     <h2>Hello</h2>,
+                     <h2>How's it going?</h2>,
+                     <h2>Find and you?</h2>,
+                  ]} */}
                </div>
             </div>
          </div>
