@@ -13,10 +13,12 @@ export default class Home extends React.Component {
       super(props);
       const activeProjects = projects.filter((project) => {
          return project.isActive;
-      });
+      }); // imagine we are returning the filtered results from an API
+
       this.state = {
+         activeProjects: activeProjects,
          isAdvanced: false,
-         projects: activeProjects,
+         displayedProjects: activeProjects,
          searchInput: "",
       };
    }
@@ -34,8 +36,26 @@ export default class Home extends React.Component {
    }
 
    setSearchInput(e) {
-      console.log(`you are searching!`);
-      this.setState({ searchInput: e.target.value });
+      // e => something is typed in
+      const searchInput = e.target.value; // get that value, store in searchInput
+      this.setState((prevState) => {
+         return {
+            searchInput: searchInput, //we update search input
+            displayedProjects: prevState.activeProjects.filter((project) => {
+               //prevState refers to before the next lines of code
+               //filter the projects
+               const lowerCasedInput = searchInput.toLowerCase();
+               const projectTitle = project.title.toLowerCase();
+               const projectDesc = project.desc.toLowerCase();
+               return (
+                  projectTitle //when the project title
+                     .toLowerCase() //toLowerCase
+                     .includes(lowerCasedInput) ||
+                  projectDesc.toLowerCase().includes(lowerCasedInput)
+               ); //includes the searchInput toLowerCase
+            }), //a match will be found and put into the displayedProjects array
+         }; // if it's false it won't be added. That's how filter gives us just the
+      }); //projects that pass the test
    }
 
    render() {
@@ -50,7 +70,9 @@ export default class Home extends React.Component {
                            id="search-projects"
                            className="form-control"
                            placeholder="Search projects"
+                           value={this.state.searchInput} //this value is grabbed by setSearchInput
                            onChange={(e) => {
+                              //when something changes in this input box, fire an anonymous method that calls setSearchInput
                               this.setSearchInput(e); //again, this refers to the whole component
                            }}
                         />
@@ -109,7 +131,7 @@ export default class Home extends React.Component {
                      </div>
                   </div>
 
-                  {this.state.projects.map((project) => {
+                  {this.state.displayedProjects.map((project) => {
                      return (
                         <Project
                            project={project}
