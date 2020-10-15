@@ -20,6 +20,7 @@ export default class Home extends React.Component {
          isAdvanced: false,
          displayedProjects: activeProjects,
          searchInput: "",
+         projectOrder: "most recent",
       };
    }
 
@@ -56,6 +57,10 @@ export default class Home extends React.Component {
             }), //a match will be found and put into the displayedProjects array
          }; // if it's false it won't be added. That's how filter gives us just the
       }); //projects that pass the test
+   }
+
+   setProjectOrder(e) {
+      this.setState({ projectOrder: e.target.value });
    }
 
    render() {
@@ -105,6 +110,13 @@ export default class Home extends React.Component {
                               type="radio"
                               id="most-recent"
                               name="project-order"
+                              value="most recent"
+                              checked={
+                                 this.state.projectOrder === "most recent"
+                              }
+                              onChange={(e) => {
+                                 this.setProjectOrder(e);
+                              }}
                               className="custom-control-input"
                            />
                            <label
@@ -119,6 +131,13 @@ export default class Home extends React.Component {
                               type="radio"
                               id="most-popular"
                               name="project-order"
+                              value="most popular"
+                              checked={
+                                 this.state.projectOrder === "most popular"
+                              }
+                              onChange={(e) => {
+                                 this.setProjectOrder(e);
+                              }}
                               className="custom-control-input"
                            />
                            <label
