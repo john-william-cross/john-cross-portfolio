@@ -3,7 +3,7 @@ import starIcon from "../icon/star.svg";
 import linkIcon from "../icon/link.svg";
 import { truncate } from "../utils/helpers"; //you can rename by adding, for example, "as truncateString" after the word truncate
 import formatDate from "date-fns/format";
-import classnames from "classnames";
+import getCssClasses from "classnames";
 
 export default class Project extends React.Component {
    // Project.render()
@@ -39,11 +39,6 @@ export default class Project extends React.Component {
    }
 
    render() {
-      let titleCSSClass = "text-reset text-decoration-none";
-      if (this.state.isHoveredOver) {
-         titleCSSClass += " text-underline";
-      }
-
       return (
          <>
             <div className="row mb-5">
@@ -60,7 +55,13 @@ export default class Project extends React.Component {
                      href={this.props.project.youtubeUrl}
                      target="_blank"
                      rel="noopener noreferrer"
-                     className={titleCSSClass}
+                     className={getCssClasses(
+                        //getCssClasses is called classNames in the docs
+                        "text-reset text-decoration-none",
+                        {
+                           "text-underline": this.state.isHoveredOver,
+                        } //text-underline is depending on whatever this.state.isHoveredOver is
+                     )}
                   >
                      <h3 className="font-weight-normal">
                         {this.props.project.title}
