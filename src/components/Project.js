@@ -90,7 +90,7 @@ export default class Project extends React.Component {
                      />
                   </a>
                </div>
-               <div className="col-12 col-md-8 mt-3 mt-md-n1">
+               <div className="col-12 col-md-8 mt-3 mt-md-n1 mb-n2">
                   <a
                      href={this.props.project.youtubeUrl}
                      target="_blank"
