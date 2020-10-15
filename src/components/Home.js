@@ -13,6 +13,7 @@ export default class Home extends React.Component {
       super(props);
       this.state = {
          isAdvanced: false,
+         projects: projects,
       };
    }
 
