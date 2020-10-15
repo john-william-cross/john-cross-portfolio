@@ -32,6 +32,10 @@ export default class Home extends React.Component {
       // }
    }
 
+   setSearchInput() {
+      console.log(`you are searching!`);
+   }
+
    render() {
       return (
          <div className="container">
@@ -44,6 +48,9 @@ export default class Home extends React.Component {
                            id="search-projects"
                            className="form-control"
                            placeholder="Search projects"
+                           onChange={() => {
+                              this.setSearchInput(); //again, this refers to the whole component
+                           }}
                         />
                      </div>
                      <div className="col-12 col-sm-4">
