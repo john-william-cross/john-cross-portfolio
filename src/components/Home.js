@@ -20,7 +20,7 @@ export default class Home extends React.Component {
          isAdvanced: false,
          displayedProjects: activeProjects,
          searchInput: "",
-         projectOrder: "most recent",
+         projectOrder: orderBy,
       };
    }
 
@@ -60,26 +60,14 @@ export default class Home extends React.Component {
    }
 
    setProjectOrder(e) {
-      const projectOrder = e.target.value;
-
+      const projectOrder = e.target.value; //get the projectOrder which is a string
+      const params = JSON.parse(projectOrder); //parse that into an array of parameters
       this.setState((prevState) => {
          return {
             projectOrder: projectOrder,
-            displayedProjects: getOrderedProjects(
-               prevState.displayedProjects,
-               projectOrder
-            ),
-         };
-      });
-
-      function getOrderedProjects(arr, orderStr) {
-         if (orderStr === "most recent") {
-            return orderBy(arr, "postedAt", "desc");
-         }
-         if (orderStr === "most popular") {
-            return orderBy(arr, "rating", "desc");
-         }
-      }
+            displayedProjects: orderBy(prevState.displayedProjects, ...params),
+         }; //we are returning a new state of displayed projects, in which we are ordering the prevState
+      }); // by the parameters, which is a spread out array into two separate strings because we parsed it
    }
 
    render() {
@@ -129,9 +117,10 @@ export default class Home extends React.Component {
                               type="radio"
                               id="most-recent"
                               name="project-order"
-                              value="most recent"
+                              value='["postedAt", "desc"]'
                               checked={
-                                 this.state.projectOrder === "most recent"
+                                 this.state.projectOrder ===
+                                 '["postedAt", "desc"]'
                               }
                               onChange={(e) => {
                                  this.setProjectOrder(e);
@@ -150,9 +139,10 @@ export default class Home extends React.Component {
                               type="radio"
                               id="most-popular"
                               name="project-order"
-                              value="most popular"
+                              value='["rating", "desc"]'
                               checked={
-                                 this.state.projectOrder === "most popular"
+                                 this.state.projectOrder ===
+                                 '["rating", "desc"]'
                               }
                               onChange={(e) => {
                                  this.setProjectOrder(e);
