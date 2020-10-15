@@ -3,6 +3,7 @@ import starIcon from "../icon/star.svg";
 import linkIcon from "../icon/link.svg";
 import { truncate } from "../utils/helpers"; //you can rename by adding, for example, "as truncateString" after the word truncate
 import formatDate from "date-fns/format";
+import classnames from "classnames";
 
 export default class Project extends React.Component {
    // Project.render()
