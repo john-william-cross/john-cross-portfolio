@@ -37,7 +37,7 @@ export default class Project extends React.Component {
       }
       return stars;
    }
-   //comment
+
    render() {
       return (
          <>
