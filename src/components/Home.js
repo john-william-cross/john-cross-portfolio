@@ -11,9 +11,12 @@ console.log(projects);
 export default class Home extends React.Component {
    constructor(props) {
       super(props);
+      const activeProjects = projects.filter((project) => {
+         return project.isActive;
+      });
       this.state = {
          isAdvanced: false,
-         projects: projects,
+         projects: activeProjects,
       };
    }
 
@@ -97,19 +100,15 @@ export default class Home extends React.Component {
                      </div>
                   </div>
 
-                  {projects
-                     .filter((project) => {
-                        return project.isActive;
-                     })
-                     .map((project) => {
-                        return (
-                           <Project
-                              project={project}
-                              key={project.id}
-                              isAdvanced={this.state.isAdvanced}
-                           />
-                        );
-                     })}
+                  {this.state.projects.map((project) => {
+                     return (
+                        <Project
+                           project={project}
+                           key={project.id}
+                           isAdvanced={this.state.isAdvanced}
+                        />
+                     );
+                  })}
 
                   {/* {[ react will automatically render things in an array! 
                      <h2>Hello</h2>,
