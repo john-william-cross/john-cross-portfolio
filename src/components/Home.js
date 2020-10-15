@@ -95,22 +95,15 @@ export default class Home extends React.Component {
                         </div>
                      </div>
                   </div>
-                  {/* for each project, map over it and return new data, 
-               except instead of new data, we want to return the 
-               project component */}
+
                   {projects.map((project) => {
                      return (
                         <Project
                            project={project}
-                           key={
-                              project.id
-                           } /*project={project} is a key value pair*/
+                           key={project.id}
+                           isAdvanced={this.state.isAdvanced}
                         />
-                     ); //we are creating a project property
-                     //inside the Project component, and setting its value equal to each project
-                     //(the variable) as we iterate over it with the map function. Remember the map
-                     //function will return a jsx component. So it goes and fetches the Project.js
-                     //component, and then renders it in the app.
+                     );
                   })}
                </div>
             </div>

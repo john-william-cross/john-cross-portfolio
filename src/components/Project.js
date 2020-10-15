@@ -19,7 +19,7 @@ export default class Project extends React.Component {
    }
 
    setIsHoveredOver(isHoveredOver) {
-      this.setState({ isHoveredOver: isHoveredOver });
+      this.setState({ isHoveredOver: isHoveredOver }); // ==>can also write this as this.setState({ isHoveredOver });
       //above, we are setting the value of isHoveredOver to
       //the variable isHoveredOver, which changes based on
       //the cursor location
