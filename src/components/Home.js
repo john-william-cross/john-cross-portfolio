@@ -17,6 +17,7 @@ export default class Home extends React.Component {
       this.state = {
          isAdvanced: false,
          projects: activeProjects,
+         searchInput: "",
       };
    }
 
@@ -32,8 +33,9 @@ export default class Home extends React.Component {
       // }
    }
 
-   setSearchInput() {
+   setSearchInput(e) {
       console.log(`you are searching!`);
+      this.setState({ searchInput: e.target.value });
    }
 
    render() {
@@ -48,8 +50,8 @@ export default class Home extends React.Component {
                            id="search-projects"
                            className="form-control"
                            placeholder="Search projects"
-                           onChange={() => {
-                              this.setSearchInput(); //again, this refers to the whole component
+                           onChange={(e) => {
+                              this.setSearchInput(e); //again, this refers to the whole component
                            }}
                         />
                      </div>
