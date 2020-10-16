@@ -26,16 +26,21 @@ export default class Home extends React.Component {
       };
    }
 
-   setIsAdvanced() {
-      this.setState({ isAdvanced: !this.state.isAdvanced }); //this is the same as the if/else statement below
-      //set the state to isAdvanced.what we're going to set it to is the opposite of whatever it was. If it's false,
-      //we use the ! operator to set it to true; if it's true, use the ! operator to set it to false.
+   updateState(e) {
+      let value = e.target.value;
+      if (value === "true" || value === "false") {
+         value = safelyParseJson(value); // "true" will turn into true
+      }
+      // eslint-disable-next-line
+      if (value == Number(value)) {
+         // "4" == 4
+         value = safelyParseJson(value); // "4 will turn into 4
+      }
+      this.setState({ [e.target.name]: value });
 
-      // if (this.state.isAdvanced) {
-      //    this.setState({ isAdvanced: false });
-      // } else {
-      //    this.setState({ isAdvanced: true });
-      // }
+      // const partialState = {};  these three lines do the same thing as the line above
+      // partialState[key] = value;
+      // this.setState(partialState);
    }
 
    setSearchInput(e) {
@@ -96,16 +101,18 @@ export default class Home extends React.Component {
                            <input
                               type="checkbox"
                               className="custom-control-input"
-                              id="advanced-view"
+                              id="isAdvanced"
                               checked={this.state.isAdvanced} //we are accessing the whole class of Home, then accessing the state of it,
                               //then accessing the isAdvanced property from the state object
-                              onChange={() => {
-                                 this.setIsAdvanced(); //again, this refers to the whole component
+                              name="isAdvanced"
+                              value={!this.state.isAdvanced}
+                              onChange={(e) => {
+                                 this.updateState(e); //again, this refers to the whole component
                               }}
                            />
                            <label
                               className="custom-control-label"
-                              htmlFor="advanced-view"
+                              htmlFor="isAdvanced"
                            >
                               Advanced view
                            </label>
