@@ -14,13 +14,15 @@ export default class Home extends React.Component {
       const activeProjects = projects.filter((project) => {
          return project.isActive;
       }); // imagine we are returning the filtered results from an API
-
+      const defaultOrder = '["postedAt", "desc"]';
+      const params = JSON.parse(defaultOrder);
+      const orderedProjects = orderBy(activeProjects, ...params);
       this.state = {
-         activeProjects: activeProjects,
+         activeProjects: orderedProjects,
          isAdvanced: false,
-         displayedProjects: activeProjects,
+         displayedProjects: orderedProjects,
          searchInput: "",
-         projectOrder: orderBy,
+         projectOrder: defaultOrder,
       };
    }
 
