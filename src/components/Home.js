@@ -32,10 +32,10 @@ export default class Home extends React.Component {
          value = safelyParseJson(value); // "true" will turn into true
       }
       // eslint-disable-next-line
-      if (value == Number(value)) {
-         // "4" == 4
-         value = safelyParseJson(value); // "4 will turn into 4
-      }
+      // if (value == Number(value)) {
+      //    // "4" == 4
+      //    value = safelyParseJson(value); // "4 will turn into 4
+      // }
       this.setState({ [e.target.name]: value });
 
       // const partialState = {};  these three lines do the same thing as the line above
