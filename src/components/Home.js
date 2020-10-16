@@ -5,7 +5,7 @@ import Project from "./Project";
 import { projects } from "../data/projects";
 import Bio from "./Bio";
 import orderBy from "lodash/orderBy";
-
+import { safelyParseJson } from "../utils/helpers";
 console.log(projects);
 
 export default class Home extends React.Component {
@@ -15,7 +15,7 @@ export default class Home extends React.Component {
          return project.isActive;
       }); // imagine we are returning the filtered results from an API
       const defaultOrder = '["postedAt", "desc"]';
-      const params = JSON.parse(defaultOrder);
+      const params = safelyParseJson(defaultOrder);
       const orderedProjects = orderBy(activeProjects, ...params);
       this.state = {
          activeProjects: orderedProjects,
@@ -63,7 +63,7 @@ export default class Home extends React.Component {
 
    setProjectOrder(e) {
       const projectOrder = e.target.value; //get the projectOrder which is a string
-      const params = JSON.parse(projectOrder); //parse that into an array of parameters
+      const params = safelyParseJson(projectOrder); //parse that into an array of parameters
       this.setState((prevState) => {
          return {
             projectOrder: projectOrder,
