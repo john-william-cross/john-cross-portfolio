@@ -171,7 +171,7 @@ export default class Home extends React.Component {
                   {this.state.displayedProjects.map((project) => {
                      return (
                         <Project
-                           project={project}
+                           project={project} //These are the props that we passing it to the project component
                            key={project.id}
                            isAdvanced={this.state.isAdvanced}
                         />
