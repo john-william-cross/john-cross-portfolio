@@ -37,7 +37,7 @@ export const projects = [
       githubUrl: "https://github.com/john-william-cross/white-bear-mpa",
       image:
          "storing-data-from-an-api-and-populating-the-ui-with-react-and-redux.jpg",
-      youtubeUrl: "https://youtu.be/LnmSkgAXbeE",
+      youtubeUrl: "https://youtu.be/ockmqlM74D0",
       isActive: true,
    },
 ];
