@@ -7,7 +7,8 @@ export const projects = [
          "Validating password and email fields in Ask a Teacher, following best security and UX practices.",
       totalMinutes: 3,
       postedAt: 1602701340190,
-      githubUrl: "https://github.com/john-william-cross/ask-a-teacher",
+      githubUrl:
+         "https://github.com/john-william-cross/ask-a-teacher-fullstack",
       image: "validation-of-email-and-password-on-account-creation.jpg",
       youtubeUrl: "https://www.youtube.com/watch?v=wLNF4YaMOwk",
       isActive: true,
@@ -20,7 +21,8 @@ export const projects = [
          "Walkthrough of Ask a Teacher, an app in which teachers answer questions submitted by users.",
       totalMinutes: 2,
       postedAt: 1602523434372,
-      githubUrl: "https://github.com/john-william-cross/ask-a-teacher",
+      githubUrl:
+         "https://github.com/john-william-cross/ask-a-teacher-fullstack",
       image: "walkthrough-of-the-ask-a-teacher-prototype.jpg",
       youtubeUrl: "https://www.youtube.com/watch?v=3N6EtIoZBRQ&t=5s",
       isActive: true,
