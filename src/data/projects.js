@@ -36,7 +36,7 @@ export const projects = [
          "In this video, I talk about how I'm storing data from an API and populating the UI of my White Bear application with React and Redux.",
       totalMinutes: 3,
       postedAt: 1604275388645,
-      githubUrl: "https://github.com/john-william-cross/white-bear-mpa",
+      githubUrl: "https://github.com/john-william-cross/white-bear-fullstack",
       image:
          "storing-data-from-an-api-and-populating-the-ui-with-react-and-redux.jpg",
       youtubeUrl: "https://youtu.be/ockmqlM74D0",
