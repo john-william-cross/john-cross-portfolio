@@ -42,4 +42,17 @@ export const projects = [
       youtubeUrl: "https://youtu.be/ockmqlM74D0",
       isActive: true,
    },
+   {
+      id: "169bf9ae-1e84-4440-9cc8-325f25caad79",
+      title: "JavaScript Array Methods Explained with Visuals",
+      rating: 5,
+      desc:
+         "In this video, I use a simple visual to help explain some of the most important array methods available to use in JavaScript.",
+      totalMinutes: 6,
+      postedAt: 1606148385408,
+      githubUrl: "https://github.com/john-william-cross/",
+      image: "javascript-array-methods-explained-with-visuals.jpg",
+      youtubeUrl: "https://youtu.be/Ezh9MKG12ys",
+      isActive: true,
+   },
 ];
