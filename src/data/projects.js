@@ -69,3 +69,5 @@ export const projects = [
       isActive: true,
    },
 ];
+
+//remember, npm run build to surge this!
