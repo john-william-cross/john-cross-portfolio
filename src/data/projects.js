@@ -55,4 +55,17 @@ export const projects = [
       youtubeUrl: "https://youtu.be/Ezh9MKG12ys",
       isActive: true,
    },
+   {
+      id: "169bf9ae-1e84-4440-9cc8-325f25caad79",
+      title: "Ask a Teacher (Beta) Full Stack Walkthrough",
+      rating: 5,
+      desc:
+         "A quick walkthrough of the beta version of my first full-stack application, Ask a Teacher.",
+      totalMinutes: 3,
+      postedAt: 1609342583167,
+      githubUrl: "https://github.com/john-william-cross/",
+      image: "ask-a-teacher-(beta)-full-stack-walkthrough.jpg",
+      youtubeUrl: "https://youtu.be/aDQ1DjKACkQ",
+      isActive: true,
+   },
 ];
